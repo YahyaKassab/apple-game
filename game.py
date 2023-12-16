@@ -6,10 +6,23 @@ import time
 #Ziad
 #=====================================================================
 
+# Initialize Pygame
+pygame.init()
 
+# Set up display
+WIDTH, HEIGHT = 800, 600
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Collect the Falling Apples")
 
-
-
+# Player settings
+PLAYER_WIDTH, PLAYER_HEIGHT = 100, 100
+player_image = pygame.image.load('./basket.png')  # Load the basket image
+player_image = pygame.transform.scale(player_image, (PLAYER_WIDTH, PLAYER_HEIGHT))
+# Center the player x
+player_x = (WIDTH - PLAYER_WIDTH) // 2
+# Bottom but up a little
+player_y = HEIGHT - PLAYER_HEIGHT - 20
+player_speed = 10
 
 #Abdullah
 #=====================================================================
