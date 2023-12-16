@@ -61,7 +61,31 @@ time.sleep(1)
 clock.tick() 
 #mazen
 #===================================================================== 
+# Main game loop
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_LEFT]:
+        player_x -= player_speed
+    if keys[pygame.K_RIGHT]:
+        player_x += player_speed
+
+    apple_y += apple_speed
+
+    if apple_y > HEIGHT:
+        apple_x = random.randint(0, WIDTH - APPLE_WIDTH)
+        apple_y = -APPLE_HEIGHT
+        missed_apples += 1
+
+        if missed_apples == 3:
+            font = pygame.font.Font(None, 50)
+            game_over_text = font.render("Game Over", True, (255, 0, 0))
+            replay_text = font.render("Press R to replay or Q to quit", True, (255, 255, 255))
 #yehia
 #=====================================================================
 
@@ -114,5 +138,5 @@ clock.tick()
     WINDOW.blit(missed_text, (10, 50))
 
     pygame.display.update()
-    clock.tick(80)
+    clock.tick(80)
 
