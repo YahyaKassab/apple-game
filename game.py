@@ -5,8 +5,6 @@ import time
 
 #Ziad
 #=====================================================================
-
-
 # Initialize Pygame
 pygame.init()
 
