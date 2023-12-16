@@ -58,4 +58,31 @@ pygame.display.update()
 time.sleep(1)
 
 # Reset clock for accurate timing
-clock.tick()
+clock.tick() 
+#mazen
+#===================================================================== 
+#yehia
+#=====================================================================
+#Abdelrahman
+#=====================================================================
+ player_rect = pygame.Rect(player_x, player_y, PLAYER_WIDTH, PLAYER_HEIGHT)
+    apple_rect = pygame.Rect(apple_x, apple_y, APPLE_WIDTH, APPLE_HEIGHT)
+
+    if player_rect.colliderect(apple_rect):
+        apple_x = random.randint(0, WIDTH - APPLE_WIDTH)
+        apple_y = -APPLE_HEIGHT
+        score += 1
+
+    WINDOW.blit(grass_background, (0, 0))
+    WINDOW.blit(player_image, (player_x, player_y))
+    WINDOW.blit(apple_image, (apple_x, apple_y))
+
+    font = pygame.font.Font(None, 36)
+    score_text = font.render(f'Score: {score}', True, (255, 255, 255))
+    missed_text = font.render(f'Missed: {missed_apples}', True, (255, 255, 255))
+    WINDOW.blit(score_text, (10, 10))
+    WINDOW.blit(missed_text, (10, 50))
+
+    pygame.display.update()
+    clock.tick(80)
+
