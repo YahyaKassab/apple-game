@@ -61,11 +61,41 @@ time.sleep(1)
 clock.tick() 
 #mazen
 #===================================================================== 
+
 #yehia
 #=====================================================================
+
+            while True:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        sys.exit()
+
+                keys = pygame.key.get_pressed()
+
+                if keys[pygame.K_r]:
+                    # Reset the game variables
+                    score = 0
+                    missed_apples = 0
+                    player_x = (WIDTH - PLAYER_WIDTH) // 2
+                    player_y = HEIGHT - PLAYER_HEIGHT - 20
+                    apple_x = random.randint(0, WIDTH - APPLE_WIDTH)
+                    apple_y = -APPLE_HEIGHT
+                    break
+
+                if keys[pygame.K_q]:
+                    pygame.quit()
+                    sys.exit()
+
+                WINDOW.fill((0, 0, 0))
+                WINDOW.blit(game_over_text, (WIDTH//2 - 100, HEIGHT//2 - 50))
+                WINDOW.blit(replay_text, (WIDTH//2 - 200, HEIGHT//2 + 50))
+                pygame.display.update()
+                clock.tick(60)
+
 #Abdelrahman
 #=====================================================================
- player_rect = pygame.Rect(player_x, player_y, PLAYER_WIDTH, PLAYER_HEIGHT)
+    player_rect = pygame.Rect(player_x, player_y, PLAYER_WIDTH, PLAYER_HEIGHT)
     apple_rect = pygame.Rect(apple_x, apple_y, APPLE_WIDTH, APPLE_HEIGHT)
 
     if player_rect.colliderect(apple_rect):
