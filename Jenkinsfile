@@ -33,29 +33,3 @@ pipeline {
         }
     }
 }
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 // Define your build steps here
-//                 echo 'Building the project...'
-//             }
-//         }
-
-//         stage('Test') {
-//             steps {
-//                 // Define your test steps here
-//                 echo 'Running tests...'
-//             }
-//         }
-
-//         stage('Deploy') {
-//             steps {
-//                 // Define your deployment steps here
-//                 echo 'Deploying the application....'
-//             }
-//         }
-//     }
-// }
