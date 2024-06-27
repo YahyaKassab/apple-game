@@ -9,7 +9,7 @@ import time
 # Initialize Pygame
 pygame.init()
 
-# Set up display
+# Set up the display
 WIDTH, HEIGHT = 800, 600
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Collect the Falling Apples")
